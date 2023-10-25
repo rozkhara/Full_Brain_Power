@@ -57,8 +57,8 @@ public class CubeController : MonoBehaviour
     public void GenerateCube()
     {
         ClearCube();
-        cubeCount = UnityEngine.Random.Range(3, cubeLimit - 1); //Number of cubes to be generated
-        int startPos_flattened = UnityEngine.Random.Range(0, cubeLimit); //First cube position
+        cubeCount = Random.Range(3, cubeLimit - 1); //Number of cubes to be generated
+        int startPos_flattened = Random.Range(0, cubeLimit); //First cube position
         int yz = startPos_flattened % sideLength2;
         Vector3Int firstCubePosition = new Vector3Int(startPos_flattened / sideLength2, yz / sideLength, yz % sideLength);
         UpdatePosition(firstCubePosition);
@@ -67,7 +67,7 @@ public class CubeController : MonoBehaviour
         int next_flattened;
         while (cubeCount > 0)
         {
-            next = UnityEngine.Random.Range(0, PossiblePositions.Count);
+            next = Random.Range(0, PossiblePositions.Count);
             UpdatePosition(PossiblePositions[next]);
             next_flattened = PossiblePositions[next].x * sideLength2 + PossiblePositions[next].y * sideLength + PossiblePositions[next].z;
             parent.GetChild(next_flattened).gameObject.SetActive(true);
