@@ -152,10 +152,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 24a8b799185f1da4c96e4936e4575a4f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  prefabs:
+  cubePrefabs:
   - {fileID: 5861088957286425126, guid: 004cf81a5a878f340aa764d19029a451, type: 3}
   - {fileID: 1226343838704166835, guid: e5df30a5e53f470468035d5aebf8abde, type: 3}
   - {fileID: 451608518045246614, guid: 198e06beb96de2049a7b8fcde969e321, type: 3}
+  planePrefabs:
+  - {fileID: 566942095269107431, guid: 6e4a8d9f97e5e96449e3cf97d8d295ac, type: 3}
+  - {fileID: 5236036153223031304, guid: fc20c13d98466b147b2c4beda047c92e, type: 3}
+  - {fileID: 6160003341036583021, guid: e12626a9e277cb34ca3ba1f7575a498b, type: 3}
 --- !u!4 &78191158
 Transform:
   m_ObjectHideFlags: 0
@@ -255,8 +259,8 @@ Light:
     m_Resolution: -1
     m_CustomResolution: -1
     m_Strength: 1
-    m_Bias: 0.05
-    m_NormalBias: 0.4
+    m_Bias: 0
+    m_NormalBias: 0
     m_NearPlane: 0.2
     m_CullingMatrixOverride:
       e00: 1
