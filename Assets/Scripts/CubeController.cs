@@ -86,7 +86,7 @@ public class CubeController : MonoBehaviour
             ny = iv.y + dy[i];
             nz = iv.z + dz[i];
             if (nx < 0 || ny < 0 || nz < 0 || nx >= sideLength || ny >= sideLength || nz >= sideLength) continue;
-            v = new(nx, ny, nz);
+            v = new Vector3Int(nx, ny, nz);
             // TODO: List.Contains() has time complexity of O(n) => need to convert this into bool[,,] occupyingPositions = new bool[5,5,5];
             if (OccupyingPositions.Contains(v)) continue;
             PossiblePositions.Add(v);
