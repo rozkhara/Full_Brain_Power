@@ -123,58 +123,6 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
---- !u!1 &78191156
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 78191158}
-  - component: {fileID: 78191157}
-  m_Layer: 0
-  m_Name: CubeController
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &78191157
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 78191156}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 24a8b799185f1da4c96e4936e4575a4f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  cubePrefabs:
-  - {fileID: 5861088957286425126, guid: 004cf81a5a878f340aa764d19029a451, type: 3}
-  - {fileID: 1226343838704166835, guid: e5df30a5e53f470468035d5aebf8abde, type: 3}
-  - {fileID: 451608518045246614, guid: 198e06beb96de2049a7b8fcde969e321, type: 3}
-  planePrefabs:
-  - {fileID: 566942095269107431, guid: 6e4a8d9f97e5e96449e3cf97d8d295ac, type: 3}
-  - {fileID: 5236036153223031304, guid: fc20c13d98466b147b2c4beda047c92e, type: 3}
-  - {fileID: 6160003341036583021, guid: e12626a9e277cb34ca3ba1f7575a498b, type: 3}
---- !u!4 &78191158
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 78191156}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &574531582
 GameObject:
   m_ObjectHideFlags: 0
@@ -219,7 +167,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 96d50b4a40bce3d47b0d7078d35a4025, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cubeController: {fileID: 78191157}
+  cubeController: {fileID: 0}
 --- !u!1 &705507993
 GameObject:
   m_ObjectHideFlags: 0
@@ -413,4 +361,3 @@ SceneRoots:
   - {fileID: 963194228}
   - {fileID: 705507995}
   - {fileID: 574531584}
-  - {fileID: 78191158}
