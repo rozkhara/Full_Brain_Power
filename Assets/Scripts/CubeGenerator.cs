@@ -8,8 +8,7 @@ public class CubeGenerator : MonoBehaviour
     private List<GameObject> cubePrefabs;
     [SerializeField]
     private List<GameObject> planePrefabs;
-    [SerializeField]
-    private int _difficulty = 1;
+    private int _difficulty = 0;
 
     private readonly Vector3 initPlanePos = new Vector3(-15, 0, 0);
 
@@ -43,6 +42,15 @@ public class CubeGenerator : MonoBehaviour
     {
         GameManager.Instance.SetDifficulty(_difficulty);
         Init();
+        GenerateCubeAndPlane();
+    }
+
+    private void AssignCubeObjectToController()
+    {
+        if (cubeInstance != null)
+        {
+            GameManager.Instance.CubeController.CubeInstanceTransform = cubeInstance.transform;
+        }
     }
 
     public void Init()
@@ -56,6 +64,7 @@ public class CubeGenerator : MonoBehaviour
         cubeLimit = sideLength * sideLength2;
         ClearCube();
         ClearPlaneInfo();
+        AssignCubeObjectToController();
     }
 
     public void GenerateCubeAndPlane()

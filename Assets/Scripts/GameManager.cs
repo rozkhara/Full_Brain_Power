@@ -19,7 +19,8 @@ public class GameManager : MonoBehaviour
     }
 
     public CubeGenerator CubeGenerator;
-    
+    public CubeController CubeController;
+
     public bool isPaused { get; private set; }
     public int Difficulty { get; private set; } // 0 for Easy, 1 for Medium, 2 for Hard, -1 for every other scenes
 
