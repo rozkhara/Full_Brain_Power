@@ -50,7 +50,7 @@ public class CubeController : MonoBehaviour
     private int DetermineRotation(Vector2 _startPos, Vector2 _endPos)
     {
         Vector2 diff = (_endPos - _startPos);
-        if (diff.sqrMagnitude < 3f)
+        if (diff.sqrMagnitude < 10f)
         {
             if (_endPos.x < middleX)
             {

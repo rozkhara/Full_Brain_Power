@@ -1001,6 +1001,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3925195050876117772}
+  - component: {fileID: -6450346793324207028}
   m_Layer: 0
   m_Name: 4x4x4 Plane
   m_TagString: Untagged
@@ -1026,6 +1027,18 @@ Transform:
   - {fileID: 7866697193304334047}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &-6450346793324207028
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5236036153223031304}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6739f7b9ce1d53b4d85fdfa1b916a3d0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &5253632113206428202
 GameObject:
   m_ObjectHideFlags: 0

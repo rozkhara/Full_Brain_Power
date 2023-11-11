@@ -8,7 +8,7 @@ public class CubeGenerator : MonoBehaviour
     private List<GameObject> cubePrefabs;
     [SerializeField]
     private List<GameObject> planePrefabs;
-    private int _difficulty = 0;
+    private int _difficulty = 2;
 
     private readonly Vector3 initPlanePos = new Vector3(-15, 0, 0);
 
@@ -53,7 +53,6 @@ public class CubeGenerator : MonoBehaviour
             GameManager.Instance.CubeController.CubeInstanceTransform = cubeInstance.transform;
         }
     }
-
     public void Init()
     {
         cubeInstance = Instantiate(cubePrefabs[GameManager.Instance.Difficulty]);
@@ -115,14 +114,14 @@ public class CubeGenerator : MonoBehaviour
         cubeParentTransform.GetChild(startPos_flattened).gameObject.SetActive(true);
         int next;
         int next_flattened;
-        while (cubeCount > 0)
+        while (cubeCount-- != 0)
         {
             next = Random.Range(0, PossiblePositions.Count);
             UpdatePosition(PossiblePositions[next]);
             next_flattened = PossiblePositions[next].x * sideLength2 + PossiblePositions[next].y * sideLength + PossiblePositions[next].z;
             cubeParentTransform.GetChild(next_flattened).gameObject.SetActive(true);
             PossiblePositions.RemoveAt(next);
-            --cubeCount;
+
         }
     }
 
@@ -133,6 +132,7 @@ public class CubeGenerator : MonoBehaviour
         {
             transform.gameObject.SetActive(true);
         }
+        planeInstance.transform.position = initPlanePos;
     }
 
     private void UpdatePlaneInfo()
