@@ -28,11 +28,12 @@ public class CubeGenerator : MonoBehaviour
     private bool[,] PlaneInfo = new bool[5, 5];
 
     private List<Vector3Int> OccupyingPositions = new List<Vector3Int>();
+    private bool[,,] BOccupyingPositions = new bool[5, 5, 5];
     private List<Vector3Int> PossiblePositions = new List<Vector3Int>();
 
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.G))    //Event type input system: https://docs.unity3d.com/Packages/com.unity.inputsystem@1.5/manual/index.html
+        if (Input.GetKeyDown(KeyCode.G))
         {
             GenerateCubeAndPlane();
         }
@@ -82,11 +83,13 @@ public class CubeGenerator : MonoBehaviour
         }
         OccupyingPositions.Clear();
         PossiblePositions.Clear();
+        System.Array.Clear(BOccupyingPositions, 0, BOccupyingPositions.Length);
     }
 
     private void UpdatePosition(Vector3Int iv)
     {
         OccupyingPositions.Add(iv);
+        BOccupyingPositions[iv.x, iv.y, iv.z] = true;
         int nx, ny, nz;
         Vector3Int v;
         for (int i = 0; i < 6; ++i)
@@ -96,8 +99,7 @@ public class CubeGenerator : MonoBehaviour
             nz = iv.z + dz[i];
             if (nx < 0 || ny < 0 || nz < 0 || nx >= sideLength || ny >= sideLength || nz >= sideLength) continue;
             v = new Vector3Int(nx, ny, nz);
-            // TODO: List.Contains() has time complexity of O(n) => need to convert this into bool[,,] occupyingPositions = new bool[5,5,5];
-            if (OccupyingPositions.Contains(v)) continue;
+            if (BOccupyingPositions[v.x, v.y, v.z]) continue;
             PossiblePositions.Add(v);
         }
     }
@@ -184,9 +186,6 @@ public class CubeGenerator : MonoBehaviour
                     }
                     break;
                 }
-            default:
-                Debug.LogError("Undefined Side!");
-                break;
         }
     }
 
@@ -195,26 +194,57 @@ public class CubeGenerator : MonoBehaviour
         ClearPlaneInfo();
         UpdatePlaneInfo();
         planeInstance.transform.position = initPlanePos;
-        for (int i = 0; i < sideLength; ++i)
+        int rotState = Random.Range(0, 4);
+        switch (rotState)
         {
-            for (int j = 0; j < sideLength; ++j)
-            {
-                if (PlaneInfo[i, j])
+            case 0: // 0 degree rotation
+                for (int i = 0; i < sideLength; ++i)
                 {
-                    planeFillerTransform.GetChild(i + j * sideLength).gameObject.SetActive(false);
+                    for (int j = 0; j < sideLength; ++j)
+                    {
+                        if (PlaneInfo[i, j])
+                        {
+                            planeFillerTransform.GetChild(i + j * sideLength).gameObject.SetActive(false);
+                        }
+                    }
                 }
-            }
+                break;
+            case 1: //90 degree CCW rotation
+                for (int i = 0; i < sideLength; ++i)
+                {
+                    for (int j = 0; j < sideLength; ++j)
+                    {
+                        if (PlaneInfo[j, sideLength - 1 - i])
+                        {
+                            planeFillerTransform.GetChild(i + j * sideLength).gameObject.SetActive(false);
+                        }
+                    }
+                }
+                break;
+            case 2: //180 degree CCW rotation
+                for (int i = 0; i < sideLength; ++i)
+                {
+                    for (int j = 0; j < sideLength; ++j)
+                    {
+                        if (PlaneInfo[sideLength - 1 - i, sideLength - 1 - j])
+                        {
+                            planeFillerTransform.GetChild(i + j * sideLength).gameObject.SetActive(false);
+                        }
+                    }
+                }
+                break;
+            case 3: //270 degree CCW rotation
+                for (int i = 0; i < sideLength; ++i)
+                {
+                    for (int j = 0; j < sideLength; ++j)
+                    {
+                        if (PlaneInfo[sideLength - 1 - j, i])
+                        {
+                            planeFillerTransform.GetChild(i + j * sideLength).gameObject.SetActive(false);
+                        }
+                    }
+                }
+                break;
         }
-        // TODO: randomly rotate the planeFiller
-        //int rotation = Random.Range(0, 4);
-        //switch (rotation)
-        //{
-        //    case 0:
-        //        {
-
-        //        }
-
-        //}
     }
-
 }
