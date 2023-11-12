@@ -169,6 +169,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   CubeGenerator: {fileID: 808623365}
   CubeController: {fileID: 1603837166}
+  PlaneController: {fileID: 0}
 --- !u!1 &705507993
 GameObject:
   m_ObjectHideFlags: 0
@@ -300,7 +301,6 @@ MonoBehaviour:
   - {fileID: 566942095269107431, guid: 6e4a8d9f97e5e96449e3cf97d8d295ac, type: 3}
   - {fileID: 5236036153223031304, guid: fc20c13d98466b147b2c4beda047c92e, type: 3}
   - {fileID: 6160003341036583021, guid: e12626a9e277cb34ca3ba1f7575a498b, type: 3}
-  _difficulty: 1
   cubeInstance: {fileID: 0}
 --- !u!4 &808623366
 Transform:
@@ -438,7 +438,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cbc674ddcccefb6449154ef64f9c2047, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 5
   CubeInstanceTransform: {fileID: 0}
 --- !u!4 &1603837167
 Transform:
