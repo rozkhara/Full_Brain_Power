@@ -26,16 +26,16 @@ public class PlaneController : MonoBehaviour
         transform.position = Vector3.Lerp(initPlanePos, destination, elapsedTime * speed / 15);
         if (elapsedTime * speed > 15f)
         {
+            elapsedTime = 0f;
             if (!Determine())
             {
-                Debug.Log("Gameover by Lack");
+                GameManager.Instance.GameOver();
             }
             cubeGenerator.GenerateCubeAndPlane();
-            elapsedTime = 0f;
         }
         if (collisionHappened)
         {
-            Debug.Log("Gameover by Collision");
+            GameManager.Instance.GameOver();
         }
     }
 

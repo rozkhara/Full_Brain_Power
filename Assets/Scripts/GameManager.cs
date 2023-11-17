@@ -39,6 +39,12 @@ public class GameManager : MonoBehaviour
         DontDestroyOnLoad(this.gameObject);
     }
 
+    public void GameOver()
+    {
+        PauseGame();
+        Debug.Log("GameOver");
+    }
+
     public void PauseGame()
     {
         Time.timeScale = 0; isPaused = true;
